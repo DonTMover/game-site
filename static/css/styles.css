@@ -1,0 +1,222 @@
+:root {
+    --light-bg: #f0f0f0;
+    --light-text: #333333;
+    --dark-bg: #1e1e1e;
+    --dark-text: #f0f0f0;
+    --primary-color: #6200ea;
+    --secondary-color: #03dac6;
+    --button-bg: #6200ea;
+    --button-text: #ffffff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .container {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.content p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+}
+
+/* Стили для кнопки переключения темы */
+#themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#themeToggle:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+} 
+
+/* Стили для маленького окна игры с RGB-подсветкой */
+.game-window {
+    width: 600px;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid #6200ea;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: rgb-glow 5s linear infinite;
+}
+
+@keyframes rgb-glow {
+    0% {
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    }
+    25% {
+        border-color: blue;
+        box-shadow: 0 0 10px blue;
+    }
+    50% {
+        border-color: lime;
+        box-shadow: 0 0 10px lime;
+    }
+    75% {
+        border-color: yellow;
+        box-shadow: 0 0 10px yellow;
+    }
+    100% {
+        border-color: red;
+        box-shadow: 0 0 10px red;
+    }
+}
+
+.game-window iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Кнопка для перехода в полноэкранный режим */
+.fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.fullscreen-button:hover {
+    opacity: 1;
+    background-color: var(--secondary-color);
+}
+
+/* Обновлённые стили футера, позволяющие менять цвета при переключении темы */
+.footer {
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #ddd;
+}
+
+body.dark-theme .footer {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    border-top: 1px solid #444;
+}
+
+.footer .social-links {
+    margin-bottom: 10px;
+}
+
+.footer .social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--button-bg);
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+}
+
+body.dark-theme .footer .social-links a {
+    color: var(--secondary-color);
+}
+
+.footer .social-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo {
+    max-width: 200px; /* адаптируйте размер по необходимости */
+    height: auto;
+}

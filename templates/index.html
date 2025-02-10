@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Переключение тем и игра</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <img src="{{ url_for('static', filename='images.png') }}" alt="Логотип" class="logo">
+    </header>
+    <div class="container">
+        <h1>Добро пожаловать!</h1>
+        <button id="themeToggle">Переключить тему</button>
+        <div class="content">
+            <p>Пример текста для демонстрации темы.</p>
+        </div>
+        <!-- Встраиваем игру в небольшом окне -->
+        <div class="game-window">
+            <iframe src="{{ url_for('play') }}"></iframe>
+            <button class="fullscreen-button" onclick="toggleFullScreen()">Full Screen</button>
+        </div>
+    </div>
+    <!-- Нижняя часть сайта с ссылками на соц. сети -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://t.me/elyapluggskrt" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M21.73 3.23a.77.77 0 0 0-.91-.16l-18 9.36a.75.75 0 0 0 .01 1.37l4.21 1.53L9.79 21a.75.75 0 0 0 1.14.96l2.69-2.32 2.81 2.03a.75.75 0 0 0 1.17-.72l-.46-5.26 4.33-4.2a.75.75 0 0 0-.17-1.17z"/>
+                </svg>
+                Telegram
+            </a>
+            <a href="https://youtube.com/@elyaplugin" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M23.498 6.186a2.986 2.986 0 0 0-2.102-2.11C19.59 3.5 12 3.5 12 3.5s-7.59 0-9.396.576A2.986 2.986 0 0 0 .502 6.186 31.746 31.746 0 0 0 0 12a31.746 31.746 0 0 0 .502 5.814 2.986 2.986 0 0 0 2.102 2.11C4.41 20.5 12 20.5 12 20.5s7.59 0 9.396-.576a2.986 2.986 0 0 0 2.102-2.11A31.746 31.746 0 0 0 24 12a31.746 31.746 0 0 0-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube
+            </a>
+            <a href="https://www.instagram.com/elyaplugg?igsh=YzMwYjAxemowYzdr" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zM17.25 6a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5z"/>
+                </svg>
+                Instagram
+            </a>
+            <a href="https://www.instagram.com/0rediskao?igsh=MWJ5cXhvNXJzc2Jvcw==" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zM17.25 6a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5z"/>
+                </svg>
+                Instagram
+            </a>
+            <a href="https://www.instagram.com/w4nderwaffe?igsh=OW9vZGlkNHJzd2cy" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zM17.25 6a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5z"/>
+                </svg>
+                Instagram
+            </a>
+            <a href="https://youtu.be/ewy1Jtytriw" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M23.498 6.186a2.986 2.986 0 0 0-2.102-2.11C19.59 3.5 12 3.5 12 3.5s-7.59 0-9.396.576A2.986 2.986 0 0 0 .502 6.186 31.746 31.746 0 0 0 0 12a31.746 31.746 0 0 0 .502 5.814 2.986 2.986 0 0 0 2.102 2.11C4.41 20.5 12 20.5 12 20.5s7.59 0 9.396-.576a2.986 2.986 0 0 0 2.102-2.11A31.746 31.746 0 0 0 24 12a31.746 31.746 0 0 0-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube
+            </a>
+        </div>
+        <p>&copy; 2023 Мой сайт. Все права защищены.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+    
