@@ -220,3 +220,9 @@ body.dark-theme .footer .social-links a {
     max-width: 200px; /* адаптируйте размер по необходимости */
     height: auto;
 }
+
+/* Подвинуть иконки влево от текста в футере */
+.footer .social-links a .social-icon {
+    transform: translateX(-5px);
+    margin-right: 5px;
+}
