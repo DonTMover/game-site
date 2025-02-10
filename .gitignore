@@ -1,0 +1,33 @@
+.idea
+.vscode
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+
+# PyTorch
+*.pt
+*.pth
+*.pth.tar
+*.pth.tar.gz
+*.pth.tar.bz2
+*.pth.tar.xz    
+
+# TensorFlow
+*.ckpt
+*.ckpt.index
+*.ckpt.meta
+*.ckpt.data-00000-of-00001
+
+# PyTorch Lightning
+*.ckpt
+*.pth
+*.pt
+*.pth.tar
+*.pth.tar.gz
+*.pth.tar.bz2
+*.pth.tar.xz
